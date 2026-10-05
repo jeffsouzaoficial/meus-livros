@@ -1,13 +1,23 @@
 import Livro from "./Livro";
 
+const livros = [
+  { titulo: "O Uraguai", autor: "Basílio da Gama", ano: 1769 },
+  { titulo: "A morte de Ivan Ilitch", autor: "Liev Tolstói", ano: 1886 },
+  { titulo: "O ateneu", autor: "Raul Pompéia", ano: 1888 }
+];
+
 function App() {
   return (
     <div>
       <h1>Meus Livros</h1>
-      <Livro titulo="O Uraguai" autor="Basílio da Gama" ano="1769" />
-      <Livro titulo="A morte de Ivan Ilitch" autor="Liev Tolstói" ano="1886" />
-      <Livro titulo="O ateneu" autor="Raul Pompéia" ano="1888" />
-
+      {livros.map((livro) => (
+        <Livro
+          key={livro.titulo}
+          titulo={livro.titulo}
+          autor={livro.autor}
+          ano={livro.ano}
+        />
+      ))}
     </div>
   );
 }
