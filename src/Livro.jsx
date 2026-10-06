@@ -2,7 +2,6 @@ import { useState } from "react";
 
 function Livro(props) {
   const [lido, setLido] = useState(false);
-
   return (
     <div>
       <h2>{props.titulo}</h2>
