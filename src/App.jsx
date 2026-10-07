@@ -7,10 +7,10 @@ function App() {
   const livrosSalvos = JSON.parse(localStorage.getItem("livros"));
 
   const [livros, setLivros] = useState(livrosSalvos ||[
-  { titulo: "O Uraguai", autor: "Basílio da Gama", ano: 1769 },
-  { titulo: "A morte de Ivan Ilitch", autor: "Liev Tolstói", ano: 1886 },
-  { titulo: "O ateneu", autor: "Raul Pompéia", ano: 1888 },
-  { titulo: "Os Lusíadas", autor: "Luiz de Camões", ano: 1572 }
+  { titulo: "O Uraguai", autor: "Basílio da Gama", ano: 1769, lido: false},
+  { titulo: "A morte de Ivan Ilitch", autor: "Liev Tolstói", ano: 1886, lido: false },
+  { titulo: "O ateneu", autor: "Raul Pompéia", ano: 1888, lido: false },
+  { titulo: "Os Lusíadas", autor: "Luiz de Camões", ano: 1572, lido: false }
 ]);
 
   const [novoTitulo, setNovoTitulo] = useState("");
@@ -25,7 +25,7 @@ function App() {
     if (novoTitulo === "") {
       return;
     }
-    const novoLivro = { titulo: novoTitulo};
+    const novoLivro = { titulo: novoTitulo, lido: false};
     setLivros([...livros, novoLivro]);
     setNovoTitulo("");
 
@@ -49,6 +49,7 @@ function App() {
           titulo={livro.titulo}
           autor={livro.autor}
           ano={livro.ano}
+          lido={livro.lido}
         />
       ))}
     </div>
