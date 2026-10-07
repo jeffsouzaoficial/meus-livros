@@ -15,6 +15,8 @@ function App() {
 
   const [novoTitulo, setNovoTitulo] = useState("");
 
+  const [filtro, setFiltro] = useState("todos");
+
   useEffect(() => {
   localStorage.setItem("livros", JSON.stringify(livros));
   }, [livros]);
@@ -53,6 +55,12 @@ function App() {
       />
 
       <button onClick={adicionarLivro}>Adicionar</button>
+
+      <button onClick={() => setFiltro("todos")}>Todos</button>
+      <button onClick={() => setFiltro("lidos")}>Lidos</button>
+      <button onClick={() => setFiltro("naoLidos")}>Não lidos</button>
+
+      <p>Filtro atual: {filtro}</p>
 
       {livros.map((livro) => (
         <Livro
