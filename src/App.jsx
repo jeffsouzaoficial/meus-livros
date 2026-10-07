@@ -31,6 +31,17 @@ function App() {
 
   }
 
+  function marcarLido(titulo, valor) {
+    const novaLista = livros.map((livro) => {
+      if (livro.titulo === titulo) {
+        return { ...livro, lido: valor };
+      }
+      return livro;
+    });
+
+    setLivros(novaLista);
+  }
+
 
   return (
     <div>
@@ -50,6 +61,7 @@ function App() {
           autor={livro.autor}
           ano={livro.ano}
           lido={livro.lido}
+          marcarLido={marcarLido}
         />
       ))}
     </div>
