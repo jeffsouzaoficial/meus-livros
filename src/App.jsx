@@ -1,5 +1,7 @@
-import { useState } from "react";
+
 import Livro from "./Livro";
+
+import { useState, useEffect } from "react";
 
 function App() {
   const [livros, setLivros] = useState([
@@ -10,6 +12,10 @@ function App() {
 ]);
 
   const [novoTitulo, setNovoTitulo] = useState("");
+
+  useEffect(() => {
+  localStorage.setItem("livros", JSON.stringify(livros));
+  }, [livros]);
 
   function adicionarLivro() {
     if (novoTitulo === "") {
