@@ -9,10 +9,19 @@ function App() {
   { titulo: "Os Lusíadas", autor: "Luiz de Camões", ano: 1572 }
 ]);
 
+  const [novoTitulo, setNovoTitulo] = useState("");
 
   return (
     <div>
       <h1>Meus Livros</h1>
+
+      <input
+        value={novoTitulo}
+        onChange={(evento) => setNovoTitulo(evento.target.value)}
+      />
+
+      <p>Você está digitando: {novoTitulo}</p>
+
       {livros.map((livro) => (
         <Livro
           key={livro.titulo}
