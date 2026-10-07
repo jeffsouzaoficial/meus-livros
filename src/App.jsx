@@ -12,6 +12,9 @@ function App() {
   const [novoTitulo, setNovoTitulo] = useState("");
 
   function adicionarLivro() {
+    if (novoTitulo === "") {
+      return;
+    }
     const novoLivro = { titulo: novoTitulo};
     setLivros([...livros, novoLivro]);
     setNovoTitulo("");
