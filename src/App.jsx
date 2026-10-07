@@ -11,6 +11,14 @@ function App() {
 
   const [novoTitulo, setNovoTitulo] = useState("");
 
+  function adicionarLivro() {
+    const novoLivro = { titulo: novoTitulo};
+    setLivros([...livros, novoLivro]);
+    setNovoTitulo("");
+
+  }
+
+
   return (
     <div>
       <h1>Meus Livros</h1>
@@ -20,7 +28,7 @@ function App() {
         onChange={(evento) => setNovoTitulo(evento.target.value)}
       />
 
-      <p>Você está digitando: {novoTitulo}</p>
+      <button onClick={adicionarLivro}>Adicionar</button>
 
       {livros.map((livro) => (
         <Livro
