@@ -44,6 +44,17 @@ function App() {
     setLivros(novaLista);
   }
 
+  const livrosFiltrados = livros.filter((livro) => {
+        if (filtro === "lidos") {
+          return livro.lido;
+        }
+        if (filtro === "naoLidos") {
+          return !livro.lido;
+        }
+        return true;
+      });
+
+
 
   return (
     <div>
@@ -60,9 +71,7 @@ function App() {
       <button onClick={() => setFiltro("lidos")}>Lidos</button>
       <button onClick={() => setFiltro("naoLidos")}>Não lidos</button>
 
-      <p>Filtro atual: {filtro}</p>
-
-      {livros.map((livro) => (
+      {livrosFiltrados.map((livro) => (
         <Livro
           key={livro.titulo}
           titulo={livro.titulo}
