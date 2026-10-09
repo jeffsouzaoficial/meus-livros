@@ -44,6 +44,17 @@ function App() {
     setLivros(novaLista);
   }
 
+  function removerLivro(titulo) {
+    const novaLista = livros.filter((livro) => {
+      if (livro.titulo === titulo) {
+        return false;
+      }
+      return true;
+    });
+
+    setLivros(novaLista);
+  }
+
   const livrosFiltrados = livros.filter((livro) => {
         if (filtro === "lidos") {
           return livro.lido;
@@ -79,6 +90,7 @@ function App() {
           ano={livro.ano}
           lido={livro.lido}
           marcarLido={marcarLido}
+          removerLivro={removerLivro}
         />
       ))}
     </div>
